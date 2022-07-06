@@ -1,0 +1,33 @@
+#+TITLE Zetting
+
+* Description
+
+Zetting is a platform that will help connect offert and demand of creators and entrepenaures
+
+** Features
+- The creator will be able o show their work and have a personalize portfolio
+- The entrepenaures will the able to see the creatrs work in a feed like screen
+- the entrepenaures will be able to search for a specific topic
+- they will be able to hire thrw the app
+
+* Goal and Vision
+
+The goal is to create a MVP but with components that could be reused in other versions, thats why we decided for use Microservices
+
+* Buisness Needs
+
+** User Persona
+
+
+** Succes Metrics
+
+
+
+* User Stories
+
+
+
+* Functional Requirements
+
+- Integration with platforms as Instagram
+- Static Image server
