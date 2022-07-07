@@ -10,6 +10,7 @@ Zetting is a platform that will help connect offert and demand of creators and e
 - the entrepenaures will be able to search for a specific topic
 - they will be able to hire thrw the app
 
+
 * Goal and Vision
 
 The goal is to create a MVP but with components that could be reused in other versions, thats why we decided for use Microservices
@@ -18,12 +19,26 @@ The goal is to create a MVP but with components that could be reused in other ve
 
 ** User Persona
 
+*** Jessica Gonzales
+Jessica Gonzales is 24 years old, needs to increase district is a cheerful, friendly and hardworking person. A year ago he opened a pastry shop and his dream is to create a pastry chain. However, he is afraid that his business will not be known, causing economic losses due to lack of sales. In addition, he does not know how to manage social networks, therefore he cannot promote his products through this means of communication. His phrase is "I hope to live from what I like".
+
+*** Juan Beltran
+Juan Beltran tiene 20 años, falta aumentar distrito está próximo a terminar la carrera de comunicaciones; se encuentra emocionado por este logro, pero a la vez ha generado preocupación porque no sabe cómo conseguirá trabajo y quienes serán la red cliente. Lo que le hace pensar que no logra dedicarse a lo que estudio. Su frase es “Espero vivir de lo que me gusta”.
+
 
 ** Succes Metrics
 
 
 
 * User Stories
+
+
+1) As a /Photographer/ , I want /to be reconize for my work/ ,so that I can /have new clients/.
+2) As a /Photographer/ , I want /my art to impact more people/ ,so that I can /have my personal brand/.
+3) As a /Creator/ , I want /my art to be protected/ ,so that I can /right reconizion/.
+4) As a /Designer/, I want /to have my own business/, so that I can be her own boss.
+5) As a /Creator/,I want /an organice platform/, so I /can find thing more eazly/.
+6) As a /Creator/,I want /my work my work to be fearly remunerated/, so I /can live for what I do/
 
 
 
