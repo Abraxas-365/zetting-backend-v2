@@ -1,0 +1,11 @@
+#+TITLE Events
+
+* Event
+
+#+begin_src json
+{
+"origin":"De que microservicio vino",
+"time_stamp": time,
+"event":obj{}
+}
+#+end_src
