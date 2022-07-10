@@ -15,8 +15,8 @@ Zetting is a platform that will help connect offert and demand of creators and e
 
 The goal is to create a MVP but with components that could be reused in other versions, thats why we decided for use Microservices
 
-* Buisness Needs
 
+* Buisness Needs
 ** User Persona
 
 *** Jessica Gonzales
@@ -29,7 +29,6 @@ Juan Beltran tiene 20 años, falta aumentar distrito está próximo a terminar l
 ** Succes Metrics
 
 
-
 * User Stories
 
 
@@ -39,6 +38,8 @@ Juan Beltran tiene 20 años, falta aumentar distrito está próximo a terminar l
 4) As a /Designer/, I want /to have my own business/, so that I can be her own boss.
 5) As a /Creator/,I want /an organice platform/, so I /can find thing more eazly/.
 6) As a /Creator/,I want /my work my work to be fearly remunerated/, so I /can live for what I do/
+7) As a /Creator/,I want /visibility with aout spending money on adds/, so I //
+8) As a /Creator/,I want /to cant a capable team to work my peojects/, so I /make bigger and better projects/
 
 
 
@@ -46,3 +47,48 @@ Juan Beltran tiene 20 años, falta aumentar distrito está próximo a terminar l
 
 - Integration with platforms as Instagram
 - Static Image server
+- Fast image load
+
+
+
+
+* Schemas
+
+** User
+
+| user        | values                    |
+|-------------+---------------------------|
+| id          | uuid                      |
+| name        | string                    |
+| nikname     | string                    |
+| password    | string                    |
+| username(@) | string                    |
+| description | string                    |
+| PerfilImage | string                    |
+| headline    | string                    |
+| creativo    | creativo {bool / uuid}    |
+| emprendedor | emprendedor {bool /uuid } |
+| gender      | string                    |
+| email       | string                    |
+| phone       | string                    |
+| DNI         | string                    |
+| country     | string                    |
+
+
+*** Creativo
+
+| creativo       |        |
+|----------------+--------|
+| skill          | array  |
+| tipo/categoria | string |
+|                |        |
+
+
+
+*** Emprendedor
+
+| emprendedor   |        |
+|---------------+--------|
+| nombreEmpresa | string |
+| ruc           | string |
+| direccion     | string |
