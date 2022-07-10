@@ -1,0 +1,18 @@
+_format_version: "2.1"
+_transform: true
+
+services:
+ - name: zetting-user
+   host: zetting-user
+   port: 3000
+   path: /api/users
+   routes:
+     - name: zetting-user-service-routes
+       paths:
+         - /api/users/
+       methods:
+         - POST
+         - GET
+         - UPDATE
+       strip_path: true
+
