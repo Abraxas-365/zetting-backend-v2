@@ -16,3 +16,16 @@ services:
          - UPDATE
        strip_path: true
 
+ - name: zetting-images
+   host: zetting-images
+   port: 3010
+   path: /api/static
+   routes:
+     - name: zetting-image-service-routes
+       paths:
+         - /api/static/
+       methods:
+         - POST
+         - GET
+         - UPDATE
+       strip_path: true
