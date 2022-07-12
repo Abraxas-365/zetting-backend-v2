@@ -10,6 +10,7 @@ import (
 type Application interface {
 	PostImage(file multipart.File, image models.Image) error
 	GetImage(key string) (*bytes.Buffer, error)
+	GetImagesByTag(tag string) (models.ImageList, error)
 }
 
 type application struct {

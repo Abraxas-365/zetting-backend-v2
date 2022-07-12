@@ -7,6 +7,7 @@ import (
 
 type Repository interface {
 	PostImage(image models.Image) (events.Event, error)
+	GetImagesByTag(tag string) (models.ImageList, error)
 
 	// SaveAlbum(album models.Album) error
 	// AddImagesToAlbum(Album uuid.UUID, user uuid.UUID, images models.ImageList) error
