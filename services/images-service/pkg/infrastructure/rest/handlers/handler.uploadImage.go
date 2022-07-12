@@ -34,7 +34,8 @@ func (h *handler) UploadImage(c *fiber.Ctx) error {
 	defer buffer.Close()
 
 	// Upload the zip file with PutObject
-	if err := h.app.PostImage(buffer, models.NewImage(file, userTokenData.ID)); err != nil {
+	tag := c.FormValue("tag", "no-tag")
+	if err := h.app.PostImage(buffer, models.NewImage(file, userTokenData.ID, tag)); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"timeStamp": time.Now(),
 			"error":     true,

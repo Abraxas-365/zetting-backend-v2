@@ -17,7 +17,7 @@ type Image struct {
 }
 
 type ImageMetadata struct {
-	Format   string `bson:"format" json:"format"`
+	Format   Format `bson:"format" json:"format"`
 	Size     int    `bson:"size" json:"size"`
 	Location string `bson:"location" json:"location"`
 	//TODO more metadata metrics
@@ -27,13 +27,15 @@ type ImageList []*Image
 
 func NewImage(file *multipart.FileHeader,
 	owner uuid.UUID,
+	tag string,
 ) Image {
 	i := &Image{}
 
 	i.ID = uuid.New()
+	i.Tag = tag
 	i.Name = file.Filename
 	i.Owner = owner
 	i.Metadata.Size = int(file.Size)
-
+	i.Metadata.Format = i.Metadata.Format.GetFormat(i.Name)
 	return *i
 }

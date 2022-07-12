@@ -1,6 +1,7 @@
 package application
 
 import (
+	"bytes"
 	"mime/multipart"
 	"service-images/pkg/domain/models"
 	"service-images/pkg/domain/ports"
@@ -8,6 +9,7 @@ import (
 
 type Application interface {
 	PostImage(file multipart.File, image models.Image) error
+	GetImage(key string) (*bytes.Buffer, error)
 }
 
 type application struct {

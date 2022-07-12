@@ -8,6 +8,7 @@ import (
 
 type Handler interface {
 	UploadImage(c *fiber.Ctx) error
+	GetImage(c *fiber.Ctx) error
 }
 
 type handler struct {
