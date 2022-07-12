@@ -7,13 +7,14 @@ import (
 )
 
 type Image struct {
-	ID        uuid.UUID     `bson:"_id,omitempty" json:"id"`
-	EntityTag string        `bson:"entity_tag,omitempty" json:"entity_tag"`
-	Name      string        `bson:"name" json:"name"`
-	Owner     uuid.UUID     `bson:"owner" json:"owner"`
-	Tag       string        `bson:"tag" json:"tag"`
-	Metadata  ImageMetadata `bson:"metadata" json:"metadata"`
-	UrlPath   string        `bson:"url_path" json:"url_path"`
+	ID        uuid.UUID `bson:"_id,omitempty" json:"id"`
+	EntityTag string    `bson:"entity_tag,omitempty" json:"entity_tag"`
+	Name      string    `bson:"name" json:"name"`
+	Owner     uuid.UUID `bson:"owner" json:"owner"`
+	//TODO:tag must be an array
+	Tag      string        `bson:"tag" json:"tag"`
+	Metadata ImageMetadata `bson:"metadata" json:"metadata"`
+	UrlPath  string        `bson:"url_path" json:"url_path"`
 }
 
 type ImageMetadata struct {
