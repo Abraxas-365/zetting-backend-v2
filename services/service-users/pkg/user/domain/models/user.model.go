@@ -11,6 +11,7 @@ type User struct {
 	ID          uuid.UUID   `bson:"_id,omitempty" json:"id"`
 	Dni         string      `bson:"dni,omitempty" json:"dni,omitempty"`
 	Name        string      `bson:"name" json:"name,omitempty"`
+	LastName    string      `bson:"last_name" json:"last_name"`
 	Nickname    string      `bson:"nickname" json:"nickname"`
 	Username    string      `bson:"username" json:"username"` //unicoooooo
 	Password    Password    `bson:"password" json:"password"`
