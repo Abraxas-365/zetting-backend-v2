@@ -6,6 +6,7 @@ import (
 
 	"github.com/google/uuid"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 func (r *repository) GetPublicUser(uuid uuid.UUID) (models.UserPublic, bool, error) {
@@ -15,7 +16,11 @@ func (r *repository) GetPublicUser(uuid uuid.UUID) (models.UserPublic, bool, err
 	var user models.UserPublic
 	filter := bson.M{"_id": uuid}
 	if err := collection.FindOne(ctx, filter).Decode(&user); err != nil {
-		return models.UserPublic{}, false, ErrUserNotFound
+		if err == mongo.ErrNoDocuments {
+			// This error means your query did not match any documents.
+			return models.UserPublic{}, false, nil
+		}
+		return models.UserPublic{}, false, err
 	}
 	return user, true, nil
 }
