@@ -1,0 +1,9 @@
+#+TITLE MyNotes
+
+* Servicios
+
+** Usuarios
+este servicio va a ser para logue y data del usuario
+
+** Notificaciones
+para guardar las notificaciones y si han sido vistas o no** Notificaciones
