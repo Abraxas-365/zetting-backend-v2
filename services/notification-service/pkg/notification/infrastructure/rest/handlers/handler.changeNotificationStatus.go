@@ -19,6 +19,12 @@ func (h *handler) ChangeNotificationStatus(c *fiber.Ctx) error {
 			"error":     fiber.ErrBadRequest.Message,
 		})
 	}
-	h.app.ChangeNotificationStatus(body.NotificationId, body.Status)
+	if err := h.app.ChangeNotificationStatus(body.NotificationId, body.Status); err != nil {
+		return c.Status(500).JSON(fiber.Map{
+			"timestamp": time.Now(),
+			"error":     fiber.ErrBadRequest.Message,
+		})
+	}
+	return c.SendStatus(fiber.StatusOK)
 
 }

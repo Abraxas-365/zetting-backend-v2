@@ -29,6 +29,7 @@ type NotificationsQuery []*NotificationQuery
 
 func (n *NotificationInput) New() *NotificationInput {
 	n.ID = uuid.New()
+	n.CreationDate = time.Now()
 
 	return n
 }

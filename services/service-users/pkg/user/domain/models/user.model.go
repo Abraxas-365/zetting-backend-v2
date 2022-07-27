@@ -45,6 +45,7 @@ type UserPublic struct {
 
 func (u *User) New() *User {
 	u.ID = uuid.New()
+	u.Created = time.Now()
 	return u
 }
 

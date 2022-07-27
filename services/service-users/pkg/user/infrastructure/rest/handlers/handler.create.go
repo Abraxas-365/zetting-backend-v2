@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"service-users/pkg/user/domain/models"
 	"time"
 
