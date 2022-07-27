@@ -5,6 +5,8 @@ go 1.18
 require (
 	github.com/gofiber/fiber/v2 v2.35.0
 	github.com/google/uuid v1.3.0
+	github.com/pkg/errors v0.9.1
+	github.com/streadway/amqp v1.0.0
 	go.mongodb.org/mongo-driver v1.10.0
 )
 
@@ -13,7 +15,6 @@ require (
 	github.com/golang/snappy v0.0.1 // indirect
 	github.com/klauspost/compress v1.15.0 // indirect
 	github.com/montanaflynn/stats v0.0.0-20171201202039-1bf9dbcd8cbe // indirect
-	github.com/pkg/errors v0.9.1 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.38.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect

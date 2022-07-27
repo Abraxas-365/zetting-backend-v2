@@ -17,7 +17,8 @@ func (r *repository) Create(new models.User) (events.EventInfo, bool, error) {
 	}
 
 	return events.NewEvent(events.UserCreated{
-		UserId:   new.ID,
-		UserName: new.Name,
+		UserId:     new.ID,
+		UserName:   new.Name,
+		UserAvatar: new.PerfilImage,
 	}), true, nil
 }

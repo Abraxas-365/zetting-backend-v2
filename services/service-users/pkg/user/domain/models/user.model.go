@@ -10,8 +10,7 @@ import (
 type User struct {
 	ID          uuid.UUID   `bson:"_id,omitempty" json:"id"`
 	Dni         string      `bson:"dni,omitempty" json:"dni,omitempty"`
-	Name        string      `bson:"name" json:"name,omitempty"`
-	LastName    string      `bson:"last_name" json:"last_name"`
+	Name        Name        `bson:"name" json:"name"`
 	Nickname    string      `bson:"nickname" json:"nickname"`
 	Username    string      `bson:"username" json:"username"` //unicoooooo
 	Password    Password    `bson:"password" json:"password"`
@@ -23,6 +22,7 @@ type User struct {
 	Contact     Contact     `bson:"contact" json:"contact"`
 	Gender      string      `bson:"gender" json:"gender,omitempty"`
 	Age         int         `bson:"age" json:"age,omitempty"`
+	Birthdate   time.Time   `bson:"birthdate" json:"birthdate"`
 	Verified    bool        `bson:"verified" json:"verified,omitempty"`
 	Created     time.Time   `bson:"created_at" json:"created_at,omitempty"`
 	Updated     time.Time   `bson:"updated_at" json:"updated_at,omitempty"`
@@ -30,7 +30,7 @@ type User struct {
 
 type UserPublic struct {
 	ID          uuid.UUID   `bson:"_id,omitempty" json:"id"`
-	Name        string      `bson:"name" json:"name"`
+	Name        Name        `bson:"name" json:"name"`
 	Nickname    string      `bson:"nickname" json:"nickname"`
 	Username    string      `bson:"username" json:"username"`
 	Description string      `bson:"description" json:"description"`
@@ -40,6 +40,7 @@ type UserPublic struct {
 	Entrepenaur Entrepenaur `bson:"entrepenaur" json:"entrepenaur"`
 	Gender      string      `bson:"gender" json:"gender,omitempty"`
 	Age         int         `bson:"age" json:"age,omitempty"`
+	Birthdate   time.Time   `bson:"birthdate" json:"birthdate"`
 	Verified    bool        `bson:"verified" json:"verified,omitempty"`
 }
 

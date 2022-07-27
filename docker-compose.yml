@@ -92,13 +92,6 @@ services:
       - 3010
     depends_on:
       - mongo
-    entrypoint:
-      - dockerize
-      - -timeout
-      - 60s
-      - -wait
-      - tcp://rabbitmq:15672
-    command: ./main
     networks:
       - zetting
 

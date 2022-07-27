@@ -1,10 +1,15 @@
 package events
 
-import "github.com/google/uuid"
+import (
+	"service-users/pkg/user/domain/models"
+
+	"github.com/google/uuid"
+)
 
 type UserCreated struct {
-	UserId   uuid.UUID `json:"user_id"`
-	UserName string    `json:"user_name"`
+	UserId     uuid.UUID   `json:"id"`
+	UserName   models.Name `json:"name"`
+	UserAvatar string      `json:"avatar"`
 }
 
 func (u UserCreated) Name() string {
@@ -14,5 +19,5 @@ func (u UserCreated) Exchange() string {
 	return "User"
 }
 func (u UserCreated) Routing() string {
-	return "creted"
+	return "created"
 }

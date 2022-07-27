@@ -23,3 +23,9 @@ type Contact struct {
 	Phone string `bson:"phone" json:"phone"`
 	Email string `bson:"email" json:"email"`
 }
+
+type Name struct {
+	FirstName  string `bson:"first_name" json:"first_name,omitempty"`
+	MiddleName string `bson:"middle_name" json:"middle_name,omitempty"`
+	LastName   string `bson:"last_name" json:"last_name"`
+}
