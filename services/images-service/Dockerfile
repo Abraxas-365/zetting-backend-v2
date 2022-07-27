@@ -21,7 +21,7 @@ RUN go mod tidy
 RUN go build cmd/main.go
 
 # Expose port 3000 to the outside world
-EXPOSE 4000:4000
+EXPOSE 3010:3010
 
 # Run the executable
 CMD  ["./main"]

@@ -14,5 +14,9 @@ para subir las imagenes a AWS y ensenarlas
 ** Projectos
 Este se va a encargar de manejar
 
+
+** Connection request
+para las request de conecciones
+
 ** Connections
-Esto va a mantener cuenta de las quienes tienes conecciones va a funcionar con rest y mensajeria necesitria de este rest api para permitir comenzar un chat
+Esto va a mantener cuenta las quienes tienes conecciones va a funcionar con rest y mensajeria necesitria de este rest api para permitir comenzar un chat
