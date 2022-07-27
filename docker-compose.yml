@@ -28,20 +28,20 @@ services:
       - zetting
 
 
-  # rabbitmq:
-  #   image: rabbitmq:3-management-alpine
-  #   container_name: rabbitmq
-  #   environment:
-  #     - RABBITMQ_DEFAULT_USER=admin
-  #     - RABBITMQ_DEFAULT_PASS=admin
-  #   ports:
-  #       - 5672:5672
-  #       - 15672:15672
-  #   volumes:
-  #       - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
-  #       - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
-  #   networks:
-  #       - zetting
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+        - zetting
 
   mongo:
     image: mongo
@@ -51,8 +51,8 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
 
-    # depends_on:
-    #   - rabbitmq
+    depends_on:
+      - rabbitmq
     ports:
       - 27018:27017
     networks:
@@ -72,13 +72,13 @@ services:
       - mongo
     networks:
       - zetting
-    # entrypoint:
-    #   - dockerize
-    #   - -timeout
-    #   - 60s
-    #   - -wait
-    #   - tcp://rabbitmq:15672
-    # command: ./main
+    entrypoint:
+      - dockerize
+      - -timeout
+      - 60s
+      - -wait
+      - tcp://rabbitmq:15672
+    command: ./main
 
   zetting-images:
     environment:
@@ -92,6 +92,13 @@ services:
       - 3010
     depends_on:
       - mongo
+    entrypoint:
+      - dockerize
+      - -timeout
+      - 60s
+      - -wait
+      - tcp://rabbitmq:15672
+    command: ./main
     networks:
       - zetting
 
@@ -107,6 +114,13 @@ services:
       - 3020
     depends_on:
       - mongo
+    entrypoint:
+      - dockerize
+      - -timeout
+      - 60s
+      - -wait
+      - tcp://rabbitmq:15672
+    command: ./main
     networks:
       - zetting
 

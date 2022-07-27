@@ -17,11 +17,13 @@ type Application interface {
 type application struct {
 	userRepo    ports.UserRepo
 	userService service.UserService
+	mqpublisher ports.UserMQPublisher
 }
 
-func NewApp(repo ports.UserRepo, service service.UserService) Application {
+func NewApp(repo ports.UserRepo, service service.UserService, mq ports.UserMQPublisher) Application {
 	return &application{
 		repo,
 		service,
+		mq,
 	}
 }

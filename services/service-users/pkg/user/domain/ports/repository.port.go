@@ -8,7 +8,7 @@ import (
 )
 
 type UserRepo interface {
-	Create(new models.User) (events.Event, bool, error)
+	Create(new models.User) (events.EventInfo, bool, error)
 	GetPublicUser(uuid uuid.UUID) (models.UserPublic, bool, error)
 	GetPrivateUser(document string, value interface{}) (models.User, bool, error)
 }
