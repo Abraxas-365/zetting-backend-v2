@@ -1,6 +1,8 @@
 package service
 
-import "service-users/pkg/user/domain/models"
+import (
+	"service-users/pkg/user/domain/models"
+)
 
 func (r *userService) Auth(email string, password models.Password) (models.User, error) {
 

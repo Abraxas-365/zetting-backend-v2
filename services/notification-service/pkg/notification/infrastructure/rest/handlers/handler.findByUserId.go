@@ -15,7 +15,8 @@ func (h *handler) FindByUserID(c *fiber.Ctx) error {
 			"error":     fiber.ErrBadRequest.Message,
 		})
 	}
-	notifications, err := h.app.FindByUserID(userId)
+	//TODO make page variable
+	notifications, err := h.app.FindByUserID(userId, 1)
 	if err != nil {
 		return c.Status(500).JSON(fiber.Map{
 			"timestamp": time.Now(),

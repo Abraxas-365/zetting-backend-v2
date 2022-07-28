@@ -9,7 +9,7 @@ import (
 
 type NotificationApp interface {
 	Create(new models.NotificationInput) (bool, error)
-	FindByUserID(id uuid.UUID) ([]models.NotificationsQuery, error) //Get all notifications for a user
+	FindByUserID(id uuid.UUID, page int) (models.NotificationsQuery, error) //Get all notifications for a user
 	ChangeNotificationStatus(notificationId uuid.UUID, isSeen bool) error
 }
 

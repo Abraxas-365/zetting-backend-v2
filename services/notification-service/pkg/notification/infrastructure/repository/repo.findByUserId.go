@@ -9,18 +9,27 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-func (r *repository) FindByUserID(userId uuid.UUID) (models.NotificationsQuery, bool, error) {
+func (r *repository) FindByUserID(userId uuid.UUID, page int) (models.NotificationsQuery, bool, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), r.timeout)
 	defer cancel()
 	collection := r.client.Database(r.database).Collection(r.collection)
-	var notifications models.NotificationsQuery
-	filter := bson.M{"reciver": userId}
-	if err := collection.FindOne(ctx, filter).Decode(&notifications); err != nil {
-		if err == mongo.ErrNoDocuments {
-			// This error means your query did not match any documents.
-			return models.NotificationsQuery{}, false, nil
-		}
-		return models.NotificationsQuery{}, false, err
+
+	notificationsQuery := models.NotificationsQuery{}
+
+	optionsLimit := bson.D{{Key: "$limit", Value: 20}}
+	optionsSkip := bson.D{{Key: "$skip", Value: page - 1}}
+	matchStage := bson.D{{Key: "$match", Value: bson.D{{Key: "reciver", Value: userId}}}}
+	lookupEmitter := bson.D{{Key: "$lookup", Value: bson.D{{Key: "from", Value: "NotificationUsers"}, {Key: "localField", Value: "emitter"}, {Key: "foreignField", Value: "_id"}, {Key: "as", Value: "emitter"}}}}
+	lookupResiver := bson.D{{Key: "$lookup", Value: bson.D{{Key: "from", Value: "NotificationUsers"}, {Key: "localField", Value: "reciver"}, {Key: "foreignField", Value: "_id"}, {Key: "as", Value: "reciver"}}}}
+	unwindEmitter := bson.D{{Key: "$unwind", Value: bson.D{{Key: "path", Value: "$emitter"}, {Key: "preserveNullAndEmptyArrays", Value: true}}}}
+	unwindResiver := bson.D{{Key: "$unwind", Value: bson.D{{Key: "path", Value: "$reciver"}, {Key: "preserveNullAndEmptyArrays", Value: true}}}}
+
+	cur, err := collection.Aggregate(ctx, mongo.Pipeline{optionsLimit, optionsSkip, matchStage,
+		lookupEmitter, lookupResiver,
+		unwindEmitter, unwindResiver})
+	if err = cur.All(ctx, &notificationsQuery); err != nil {
+		return nil, false, err
 	}
-	return notifications, true, nil
+
+	return notificationsQuery, true, nil
 }

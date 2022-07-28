@@ -29,3 +29,17 @@ services:
          - GET
          - UPDATE
        strip_path: true
+
+ - name: zetting-notification
+   host: zetting-notification
+   port: 3020
+   path: /api/notifications
+   routes:
+     - name: zetting-notifications-service-routes
+       paths:
+         - /api/notifications/
+       methods:
+         - POST
+         - GET
+         - UPDATE
+       strip_path: true
